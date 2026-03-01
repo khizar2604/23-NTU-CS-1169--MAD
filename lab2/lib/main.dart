@@ -7,23 +7,30 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Task1());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Task2());
   }
 }
 
-class Task1 extends StatelessWidget {
+class Task2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
-      body: SafeArea(
-        child: Container(
-          width: 250,
-          height: 250,
-          margin: EdgeInsets.all(25.0),
-          padding: EdgeInsets.symmetric(vertical: 15.0),
-          color: Colors.white,
-          child: Center(child: Text('Safe Container')),
+      backgroundColor: Colors.blueGrey[100],
+      appBar: AppBar(title: Text("Task 2"), centerTitle: true),
+      body: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Icon(Icons.favorite, size: 50, color: Colors.red),
+
+            SizedBox(height: 60),
+
+            Icon(Icons.thumb_up, size: 50, color: Colors.blue),
+
+            Icon(Icons.share, size: 50, color: Colors.green),
+          ],
         ),
       ),
     );
