@@ -7,29 +7,25 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Task2());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Task3());
   }
 }
 
-class Task2 extends StatelessWidget {
+class Task3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[100],
-      appBar: AppBar(title: Text("Task 2"), centerTitle: true),
+      appBar: AppBar(title: Text("Task 3"), centerTitle: true),
       body: Container(
         width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.end,
+        height: double.infinity,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Icon(Icons.favorite, size: 50, color: Colors.red),
-
-            SizedBox(height: 60),
-
-            Icon(Icons.thumb_up, size: 50, color: Colors.blue),
-
-            Icon(Icons.share, size: 50, color: Colors.green),
+            Icon(Icons.volume_up, size: 50),
+            Icon(Icons.bluetooth, size: 50),
+            Icon(Icons.wifi, size: 50),
           ],
         ),
       ),
