@@ -11,9 +11,9 @@ class Lab3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Lab 3",
-      theme: ThemeData(primarySwatch: Colors.teal),
-      home: const MainScreen(),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
       debugShowCheckedModeBanner: false,
+      home: const MainScreen(),
     );
   }
 }
@@ -23,76 +23,91 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Task3();
+    return const Task4();
   }
 }
 
-class Task3 extends StatelessWidget {
-  const Task3({super.key});
+class Task4 extends StatelessWidget {
+  const Task4({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Task 3 – Profile Image",
-          style: TextStyle(fontSize: 22),
+          "Task 4 – Status Panel",
+          style: TextStyle(fontSize: 26),
         ),
-        backgroundColor: Colors.deepOrange,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: CircleAvatar(
-              radius: 25,
-              backgroundColor: Colors.amber.shade200,
-              child: const Icon(
-                Icons.account_circle,
-                color: Colors.deepPurple,
-                size: 28,
+        backgroundColor: Colors.orange,
+      ),
+      backgroundColor: Colors.grey.shade200,
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              height: 140,
+              width: double.infinity,
+              color: Colors.teal,
+              child: const Center(
+                child: Text(
+                  "Header",
+                  style: TextStyle(
+                    color: Colors.yellow,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
               ),
             ),
-          ),
-        ],
-      ),
-      body: SafeArea(
-        child: Container(
-          color: Colors.grey.shade100,
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "Network Profile Image:",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.teal,
+
+            const SizedBox(height: 40),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    width: 120,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      color: Colors.pink,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Action 1",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-
-                const SizedBox(height: 30),
-
-                CircleAvatar(
-                  radius: 80,
-                  backgroundColor: Colors.pink.shade100,
-                  backgroundImage: const NetworkImage(
-                    'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg',
+                  Container(
+                    width: 120,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      color: Colors.indigo,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Action 2",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
-                  onBackgroundImageError: (exception, stackTrace) {
-                    debugPrint("Image loading failed.");
-                  },
-                  child: const Icon(Icons.face, size: 80, color: Colors.white),
-                ),
-
-                const SizedBox(height: 30),
-
-                const Text(
-                  "(Profile shown in AppBar top-right)",
-                  style: TextStyle(fontSize: 18, color: Colors.black54),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
