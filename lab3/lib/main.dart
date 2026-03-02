@@ -11,8 +11,9 @@ class Lab3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Lab 3",
-      theme: ThemeData(primarySwatch: Colors.purple),
+      theme: ThemeData(primarySwatch: Colors.teal),
       home: const MainScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -22,62 +23,75 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Task2();
+    return const Task3();
   }
 }
 
-class Task2 extends StatelessWidget {
-  const Task2({super.key});
+class Task3 extends StatelessWidget {
+  const Task3({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Task 2 – Padding & Margin"),
-        backgroundColor: Colors.deepPurple,
+        title: const Text(
+          "Task 3 – Profile Image",
+          style: TextStyle(fontSize: 22),
+        ),
+        backgroundColor: Colors.deepOrange,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: CircleAvatar(
+              radius: 25,
+              backgroundColor: Colors.amber.shade200,
+              child: const Icon(
+                Icons.account_circle,
+                color: Colors.deepPurple,
+                size: 28,
+              ),
+            ),
+          ),
+        ],
       ),
       body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                color: Colors.orange.shade300,
-                padding: const EdgeInsets.all(35.0),
-                child: const Text(
-                  "Padding: all(35.0)",
-                  style: TextStyle(fontSize: 18),
+        child: Container(
+          color: Colors.grey.shade100,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Network Profile Image:",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.teal,
+                  ),
                 ),
-              ),
 
-              const SizedBox(height: 30),
+                const SizedBox(height: 30),
 
-              Container(
-                color: Colors.teal.shade300,
-                margin: const EdgeInsets.symmetric(
-                  vertical: 70.0,
-                  horizontal: 25.0,
+                CircleAvatar(
+                  radius: 80,
+                  backgroundColor: Colors.pink.shade100,
+                  backgroundImage: const NetworkImage(
+                    'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg',
+                  ),
+                  onBackgroundImageError: (exception, stackTrace) {
+                    debugPrint("Image loading failed.");
+                  },
+                  child: const Icon(Icons.face, size: 80, color: Colors.white),
                 ),
-                padding: const EdgeInsets.all(15),
-                child: const Text(
-                  "Margin: vertical(70), horizontal(25)",
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
 
-              Container(
-                color: Colors.yellow.shade300,
-                padding: const EdgeInsets.only(
-                  left: 25.0,
-                  top: 10.0,
-                  bottom: 10.0,
+                const SizedBox(height: 30),
+
+                const Text(
+                  "(Profile shown in AppBar top-right)",
+                  style: TextStyle(fontSize: 18, color: Colors.black54),
                 ),
-                child: const Text(
-                  "Padding: only(left: 25, top: 10, bottom: 10)",
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
