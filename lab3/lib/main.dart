@@ -1,64 +1,80 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(debugShowCheckedModeBanner: false, home: Task1()));
+  runApp(const Lab3());
 }
 
-class Task1 extends StatelessWidget {
-  const Task1({super.key});
+class Lab3 extends StatelessWidget {
+  const Lab3({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Lab 3",
+      theme: ThemeData(primarySwatch: Colors.purple),
+      home: const MainScreen(),
+    );
+  }
+}
+
+class MainScreen extends StatelessWidget {
+  const MainScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Task2();
+  }
+}
+
+class Task2 extends StatelessWidget {
+  const Task2({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Task 1"), backgroundColor: Colors.teal),
+      appBar: AppBar(
+        title: const Text("Task 2 – Padding & Margin"),
+        backgroundColor: Colors.deepPurple,
+      ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
+        child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                color: Colors.green.shade100,
-                elevation: 6,
-                child: const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Icon(Icons.handshake, color: Colors.deepPurple, size: 35),
-                      Icon(Icons.savings, color: Colors.amber, size: 55),
-                      Icon(Icons.favorite, color: Colors.pink, size: 45),
-                    ],
-                  ),
+              Container(
+                color: Colors.orange.shade300,
+                padding: const EdgeInsets.all(35.0),
+                child: const Text(
+                  "Padding: all(35.0)",
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
-              Card(
-                color: Colors.cyan.shade100,
-                elevation: 12,
-                child: const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
-                    children: [
-                      Icon(Icons.star, color: Colors.indigo, size: 65),
-                      SizedBox(height: 15),
-                      Icon(Icons.bolt, color: Colors.redAccent, size: 45),
-                    ],
-                  ),
+
+              const SizedBox(height: 30),
+
+              Container(
+                color: Colors.teal.shade300,
+                margin: const EdgeInsets.symmetric(
+                  vertical: 70.0,
+                  horizontal: 25.0,
+                ),
+                padding: const EdgeInsets.all(15),
+                child: const Text(
+                  "Margin: vertical(70), horizontal(25)",
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
-              Card(
-                color: Colors.yellow.shade100,
-                elevation: 16,
-                child: const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Icon(Icons.music_note, color: Colors.blueGrey, size: 50),
-                      Icon(Icons.movie, color: Colors.brown, size: 40),
-                      Icon(Icons.camera, color: Colors.teal, size: 60),
-                    ],
-                  ),
+
+              Container(
+                color: Colors.yellow.shade300,
+                padding: const EdgeInsets.only(
+                  left: 25.0,
+                  top: 10.0,
+                  bottom: 10.0,
+                ),
+                child: const Text(
+                  "Padding: only(left: 25, top: 10, bottom: 10)",
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
             ],
