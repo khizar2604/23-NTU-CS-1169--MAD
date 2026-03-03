@@ -49,8 +49,6 @@ class ProfilePage extends StatelessWidget {
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
 
-            SizedBox(height: 20),
-
             Row(
               children: [
                 Expanded(
@@ -66,8 +64,6 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                SizedBox(width: 10),
 
                 Expanded(
                   flex: 1,
