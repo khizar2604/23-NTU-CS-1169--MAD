@@ -11,14 +11,32 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SafeArea(
-          child: Center(
-            child: Text(
-              'Task 1: Safe Scaffold',
-              style: TextStyle(color: Colors.amber),
+      home: ProfilePage(),
+    );
+  }
+}
+
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              margin: const EdgeInsets.all(20.0),
+              child: Center(
+                child: const CircleAvatar(
+                  radius: 50,
+                  backgroundImage: AssetImage('assets/pic.jpeg'),
+                  backgroundColor: Colors.amber,
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
