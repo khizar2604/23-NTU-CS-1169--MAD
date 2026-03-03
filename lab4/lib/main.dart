@@ -22,21 +22,39 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              margin: const EdgeInsets.all(20.0),
-              child: Center(
+      body: Center(
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Avatar
+              Container(
+                margin: const EdgeInsets.all(20.0),
                 child: const CircleAvatar(
                   radius: 50,
                   backgroundImage: AssetImage('assets/pic.jpeg'),
-                  backgroundColor: Colors.amber,
                 ),
               ),
-            ),
-          ],
+
+              // Name
+              Text(
+                "Khizar Hameed",
+                style: TextStyle(
+                  color: Colors.amber,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              SizedBox(height: 8),
+
+              // Title
+              Text(
+                "Flutter Developer",
+                style: TextStyle(fontSize: 16, color: Colors.amber),
+              ),
+            ],
+          ),
         ),
       ),
     );
